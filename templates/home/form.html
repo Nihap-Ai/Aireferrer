@@ -1,0 +1,363 @@
+{% extends 'layouts/base-presentation.html' %}
+
+{% block title %} Presentation {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block content %}
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-svg.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
+</head>
+
+
+<section class="pt-5 flexx2" style=" padding-top: -30rem !important;">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-5 col-md-12 order-1 order-md-1 order-lg-1">
+          <div class="p-3" style="padding-top: 9rem !important;">
+           <div class="card d-flex flexxed justify-content-center p-4 shadow-lg" >
+             <div class="text-center">
+            <h3 class="text-center text-gradient text-primary">Create Your AI Art Free</h3>
+          
+          </div>
+            
+            <form role="form" id="subform" method="POST" autocomplete="off">
+              {% csrf_token %}
+              <div class="mb-4">
+                  <label>Text Prompt</label>
+                  <div class="input-group mb-4">
+                    <input class="form-control" placeholder="" aria-label="Text-prompt" type="text" name="inp" size="70" id="inp">
+                  </div>
+                
+                  <button  class="btn bg-gradient-primary w-100">Create</button>
+                <div class="overlay"></div>
+                <div class="main-popup">
+                <div class="popup-header">
+                  <img src="{{ ASSETS_ROOT }}/img/run.gif">
+                </div><!--.popup-header-->
+                <div class="popup-content">
+                  <h1 class="run">Your art is </h1>
+                  <h2 class="run2 text-gradient text-primary">creating...</h2>
+                </div><!--.popup-content-->
+              </div><!--.main-popup-->
+            </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1" style="margin-left: 3% !important; ">
+<h4 class="text-center mb-5 flexx" >"Name of the art"</h4>
+          <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
+
+            <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
+            <img src="{{ ASSETS_ROOT }}/img/wizard.png" class="w-100 border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+            <a  href="{{ ASSETS_ROOT }}/img/{{prompt}}.png" download>  
+                    <button type="button" class="btn bg-gradient-primary w-auto me-2 w-100 border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" style="  margin: 0;position: absolute;left: 65%;-ms-transform: translate(-50%, -50%);transform: translate(-100%, -200%);">Download</button></a>
+
+        
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<style type="text/css">
+
+
+
+ 
+@media (min-width: 912px) {
+    .flexx {
+   margin-left: 10rem !important;
+
+
+    } 
+  }
+@media (min-width: 912px) {
+    .flexx2 {
+   margin-left: 10rem !important;
+
+
+    } 
+  }
+
+.mt-99 {
+  margin-top: -2rem !important; }
+  
+.run{
+
+  text-align: center;
+  font-size: 7vw;
+  margin-top: 30%;
+
+  
+}
+.run2{
+  text-align: center;
+  
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-popup {
+  position: fixed;
+  left: 0;
+  top: 30px;
+  margin: 0;
+  width: 100%;
+  height: 450px;
+  background-color: rgb(255 255 255);
+  border-radius: 5px;
+  z-index: 15;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all .5s ease;
+   margin-top: 100px;
+  /*overflow: hidden;*/
+}
+
+.main-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
+  transition: all .5s ease;
+   margin-top: 100px;
+}
+
+@media (min-width: 500px) {
+  .main-popup {
+    width: 500px;
+    left: 50%;
+    margin: 0 0 0 -250px;
+  }
+}
+
+.popup-header {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 62px;
+  width: 100%;
+  left: 10%;
+  top: 10%;
+}
+
+#popup-close-button a {
+  position: absolute;
+  right: 10px;
+  top: -30px;
+  width: 22px;
+  height: 22px;
+}
+
+#popup-close-button a::before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 3px;
+  height: 25px;
+  background-color: #fff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+.popup-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+.popup-header ul li {
+  text-align: center;
+  list-style: none;
+  width: 50%;
+  float: left;
+}
+
+.popup-header ul li a {
+  display: block;
+  padding: 20px 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+
+</style>
+<!--
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-7 d-flex justify-content-center flex-column">
+        <div class="card card-body d-flex justify-content-center shadow-lg p-8 blur align-items-center">
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="{{ ASSETS_ROOT }}/js/plugins/countup.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/rellax.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/tilt.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/poppup.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+
+
+  <script type="text/javascript"  src="https://apiv2.popupsmart.com/api/Bundle/394303" async></script>
+
+
+  <script type="text/javascript">
+    
+    function openPopup(popup) {
+  /* Open popup and make accessible screen readers */
+  $(popup).show().attr("aria-hidden", "false");
+  /* Focus on element to guide screen readers to popup */
+  $("#closePopup").focus();
+}
+
+function closePopup(popup) {
+  /* Close popup and hide from screen readers */
+  
+  /* Focus screen readers back to button */
+  $("#openMyPopup").focus();
+}
+
+  </script>
+
+
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+
+  <script type="text/javascript">
+  
+  $(document).on('submit','#subform',function(e){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'{% url "form" %}',
+            data:
+            {
+                inp:$("#inp").val(),
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success:function(){
+                   
+                 document.location.reload(true)
+                  
+                    }
+            });
+                  e.preventDefault();
+        });
+    </script>
+
+
+    <script type="text/javascript">
+      
+      /*Title: Cool Modal Popup Sign In/Out Form*/
+
+$(function() {
+  //defining all needed variables
+  var $overlay = $('.overlay');
+  var $mainPopUp = $('.main-popup')
+  
+  function initialState() {
+    
+  }
+  initialState(); 
+  function changeUnderline(el) {
+    $('.underline').css({
+      "width": el.width(),
+      "left": el.position().left,
+      "top": el.position().top + el.outerHeight(true) + 'px'
+    });
+  } 
+  
+ 
+  
+  
+  $('button').on('click', function(){
+    $overlay.addClass('visible');
+    $mainPopUp.addClass('visible');
+    $signIn.addClass('active');
+    $register.removeClass('active');
+    $formRegister.removeClass('move-left');
+    $formSignIn.removeClass('move-left');
+  });
+  
+});
+    </script>
+
+{% endblock javascripts %}
