@@ -11,13 +11,13 @@
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/nucleo-icons.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/nucleo-svg.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-svg.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.min.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
 </head>
 
 
@@ -45,7 +45,7 @@
                 <div class="overlay"></div>
                 <div class="main-popup">
                 <div class="popup-header">
-                  <img src="../../static/assets/img/run.gif">
+                  <img src="{{ ASSETS_ROOT }}/img/run.gif">
                 </div><!--.popup-header-->
                 <div class="popup-content">
                   <h1 class="run">Your art is </h1>
@@ -64,8 +64,8 @@
           <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
 
             <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
-            <img src="../../static/assets/img/wizard.png" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
-            <a  href="../../static/assets/img/{{prompt}}.png" download>  
+            <img src="{{ ASSETS_ROOT }}/img/wizard.png" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+            <a  href="{{ ASSETS_ROOT }}/img/{{prompt}}.png" download>  
                     <button type="button" class="btn bg-gradient-primary w-auto me-2 w-100 border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" style="  margin: 0;position: absolute;left: 65%;-ms-transform: translate(-50%, -50%);transform: translate(-100%, -200%);">Download</button></a>
 
         
@@ -246,15 +246,15 @@
 <!-- Specific JS goes HERE --> 
 {% block javascripts %}
 
-  <script src="../../static/assets/js/plugins/countup.min.js"></script>
-  <script src="../../static/assets/js/plugins/choices.min.js"></script>
-  <script src="../../static/assets/js/plugins/rellax.min.js"></script>
-  <script src="../../static/assets/js/plugins/tilt.min.js"></script>
-  <script src="../../static/assets/js/plugins/choices.min.js"></script>
-  <script src="../../static/assets/js/poppup.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/countup.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/rellax.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/tilt.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/poppup.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <script src="../../static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
 
 
   <script type="text/javascript"  src="https://apiv2.popupsmart.com/api/Bundle/394303" async></script>
