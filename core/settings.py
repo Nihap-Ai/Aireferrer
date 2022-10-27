@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS=['https://web-production-8b8c.up.railway.app','https://aireferrer.com','http://aireferrer.com','https://web-production-bea3.up.railway.app','web-production-7d70.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-8b8c.up.railway.app','https://aireferrer.com','http://aireferrer.com','https://web-production-7d70.up.railway.app','http://web-production-7d70.up.railway.app ']
 
 # Application definition
 
