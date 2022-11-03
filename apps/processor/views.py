@@ -28,17 +28,13 @@ def form(request):
         
         access_token = "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"
         
- 
-        model_id = "CompVis/stable-diffusion-v1-4"
-        device = "cuda"
-    
-        pipe = StableDiffusionPipeline.from_pretrained(model_id, use_auth_token=access_token)
-        pipe = pipe.to(device)
-    
+        pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", revision="fp16", torch_dtype=torch.float16, use_auth_token=access_token)
+        pipe = pipe.to("cuda")
         prompt = inp
         with autocast("cuda"):
-            image = pipe(prompt, guidance_scale=7.5).images[0]  
+            image = pipe(prompt)["sample"][0]  
         image.save("/outpage/astronaut_rides_horse.png") 
+      
 
     return render(request, "home/form.html")
 
