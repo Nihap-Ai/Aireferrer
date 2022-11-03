@@ -13,3 +13,4 @@ google-trans-new==1.1.9
 googletrans==4.0.0rc1
 torch
 gevent
+replicate
