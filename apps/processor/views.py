@@ -27,7 +27,7 @@ def form(request):
         
         print(inp)
         
-       image_urls="nothing"
+image_urls="nothing"
 def form(request):
     global image_urls
     if request.method == 'POST':
