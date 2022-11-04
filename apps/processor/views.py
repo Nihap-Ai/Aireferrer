@@ -27,9 +27,12 @@ def form(request):
         
         print(inp)
         
-image_urls=['../../static/assets/img/wizard.png','nothing']
+image_urls="nothing"
+
+PROMPT="temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epic, concept art, Matte painting, background, mist, photo-realistic, concept art, volumetric light, cinematic epic + rule of thirds octane render, 8k, corona render, movie concept art, octane render, cinematic, trending on artstation, movie concept art, cinematic composition , ultra-detailed, realistic , hyper-realistic , volumetric lighting, 8k –ar 2:3 –test –uplight"
+
 def form(request):
-    global image_urls
+    global image_urls,PROMPT
     if request.method == 'POST':
         inp = request.POST.get("inp")
         
@@ -46,7 +49,7 @@ def form(request):
 
         print(image_urls[0])
 
-    return render(request, "home/form.html",{"image_urls": image_urls[0]})
+    return render(request, "home/form.html",{"image_urls": image_urls[0], "PROMPT": PROMPT})
 
  
 
