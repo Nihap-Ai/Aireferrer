@@ -30,9 +30,10 @@ def form(request):
 image_urls=['../../static/assets/img/temple.jpg','nothing']
 
 PROMPT="temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epic, concept art, Matte painting, background, mist, photo-realistic, concept art, volumetric light, cinematic epic + rule of thirds octane render, 8k, corona render, movie concept art, octane render, cinematic, trending on artstation, movie concept art, cinematic composition , ultra-detailed, realistic , hyper-realistic , volumetric lighting, 8k –ar 2:3 –test –uplight"
-
+img_name = PROMPT[:12]
 def form(request):
-    global image_urls,PROMPT
+    global image_urls,PROMPT,img_name
+
     if request.method == 'POST':
         inp = request.POST.get("inp")
         
@@ -44,12 +45,14 @@ def form(request):
         client = replicate.Client(api_token=YOUR_API_TOKEN)
         model = client.models.get("stability-ai/stable-diffusion")
         image_urls = model.predict(prompt=PROMPT)
+        img_name = PROMPT[:12]
 
         
 
         print(image_urls[0])
 
-    return render(request, "home/form.html",{"image_urls": image_urls[0], "PROMPT": PROMPT})
+    return render(request, "home/form.html",{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name})
+
 
  
 
