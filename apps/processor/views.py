@@ -27,7 +27,7 @@ def form(request):
         
         print(inp)
         
-image_urls="nothing"
+image_urls=['../../static/assets/img/wizard.png','nothing']
 def form(request):
     global image_urls
     if request.method == 'POST':
