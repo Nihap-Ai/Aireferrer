@@ -48,8 +48,19 @@
                   <img src="{{ ASSETS_ROOT }}/img/run.gif">
                 </div><!--.popup-header-->
                 <div class="popup-content">
-                  <h1 class="run">Your art is </h1>
-                  <h2 class="run2 text-gradient text-primary">creating...</h2>
+                 <!-- Progress Bar Loading Page -->
+<div class="container">
+    <div id="progressive">
+        
+        <div class="progress" id="shadow" >
+            <div class="progress-bar progress-bar-danger six-sec-ease-in-out" role="progressbar" data-transitiongoal="100"></div>
+        </div>
+     </div>
+</div>
+<img src="{{ ASSETS_ROOT }}/img/run.gif" style="    width: 187px;
+    height: 147px;
+    margin-top: 14px;
+    margin-left: 160px;">
                 </div><!--.popup-content-->
               </div><!--.main-popup-->
             </div>
@@ -60,7 +71,7 @@
       </div>
 
         <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1" style="margin-left: 3% !important; ">
-<h4 class="text-center mb-5 flexx" >"Name of the art"</h4>
+
           <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
 
             <div class="bg-gradient-primary w-100 h-100 border-radius-xl position-absolute d-lg-block d-none" alt=""></div>
@@ -77,6 +88,105 @@
   </section>
 
 <style type="text/css">
+  /* Progress Bar Placement & Styling */
+#progressive {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 70%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+}
+
+/* Transition speed for progress bar */
+.six-sec-ease-in-out {
+    -webkit-transition: width 6s ease-in-out;
+    -moz-transition: width 20s ease-in-out;
+    -ms-transition: width 20s ease-in-out;
+    -o-transition: width 20s ease-in-out;
+    transition: width 20s ease-in-out;
+}
+
+#shadow {
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+
+
+pre.prettyprint {
+  white-space: pre-wrap;
+  padding:10px 30px;
+  margin:0;
+  font-size:14px;
+}
+
+pre.prettyprint script.pre-script{display:block;}
+
+/* ========================
+//#google-prettify-monokai-theme
+//#Version: 0.3
+//#Author: RaphaelDDL
+//#Github: https://github.com/RaphaelDDL/google-prettify-monokai-theme/
+//For use with Google Code Prettify, HTML Syntax only
+//======================== */
+
+pre .str, code .str { color: #e6db5a; } /* string */
+pre .kwd, code .kwd { color: #66d9ef; } /* keyword */
+pre .com, code .com { color: #75715e; font-style: italic; } /* comment */
+pre .typ, code .typ { color: #66d9ef; } /* type */
+pre .lit, code .lit { color: #ae81ff; } /* literal */
+pre .pun, code .pun { color: #fff; } /* punctuation */
+pre .pln, code .pln { color: #fff; } /* plaintext */
+pre .tag, code .tag { color: #f92672; } /* html/xml tag */
+pre .atn, code .atn { color: #a6e22a; } /* html/xml attribute name */
+pre .atv, code .atv { color: #e6db74; } /* html/xml attribute value */
+pre .dec, code .dec { color: #ae81ff; } /* decimal */
+
+pre.prettyprint, code.prettyprint {
+  background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+
+  font-family: consolas, menlo, courier, monospace;
+}
+
+
+
+
+
+/* ------------------------
+//Section: class 'linenums' for line numbering
+//------------------------ */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #75715e;
+  list-style: decimal inside !important;
+} /* IE indents via margin-left */
+
+
+/* =============================================
+//Section: Print Styles (partially from Sunburn Theme)
+//================================================ */
+@media print {
+  pre.prettyprinted, pre.prettyprint, code.prettyprint {
+    background-color:#fff;
+    color:#000;
+  }
+
+  pre .str, code .str { color: #060; }
+  pre .kwd, code .kwd { color: #006; font-weight: bold; }
+  pre .com, code .com { color: #600; font-style: italic; }
+  pre .typ, code .typ { color: #404; font-weight: bold; }
+  pre .lit, code .lit { color: #044; }
+  pre .pun, code .pun { color: #440; }
+  pre .pln, code .pln { color: #000; }
+  pre .tag, code .tag { color: #006; font-weight: bold; }
+  pre .atn, code .atn { color: #404; }
+  pre .atv, code .atv { color: #060; }
+}
 
 .imgss{
   border: 2px solid black;
@@ -261,6 +371,34 @@
 
 
   <script type="text/javascript">
+    
+    $(document).ready(function() {
+    /* Progress Bar animation */
+    $(".progress-bar").animate({
+        width: "100%"
+    }, 250 ); // start in under a sec
+});
+
+       function forceDownload(link){
+    var url = link.getAttribute("data-href");
+    var fileName = link.getAttribute("download");
+    link.innerText = "Working...";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.responseType = "blob";
+    xhr.onload = function(){
+        var urlCreator = window.URL || window.webkitURL;
+        var imageUrl = urlCreator.createObjectURL(this.response);
+        var tag = document.createElement('a');
+        tag.href = imageUrl;
+        tag.download = fileName;
+        document.body.appendChild(tag);
+        tag.click();
+        document.body.removeChild(tag);
+        link.innerText="Download";
+    }
+    xhr.send();
+}
     
     function openPopup(popup) {
   /* Open popup and make accessible screen readers */
