@@ -372,6 +372,16 @@ ol.linenums {
 
   <script type="text/javascript">
     
+    $(document).ready(function(){
+    $('.create').attr('disabled',true);
+    $('#inp').keyup(function(){
+        if($(this).val().length >=5)
+            $('.create').attr('disabled', false);            
+        else
+            $('.create').attr('disabled',true);
+    })
+});
+    
     $(document).ready(function() {
     /* Progress Bar animation */
     $(".progress-bar").animate({
