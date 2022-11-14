@@ -40,7 +40,7 @@ def form(request):
         print(inp)
        
        
-        YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
+        YOUR_API_TOKEN = "aeca9b7305692d85ad075f8b6a609fd1b012ffe3"
         PROMPT = inp
         client = replicate.Client(api_token=YOUR_API_TOKEN)
         model = client.models.get("stability-ai/stable-diffusion")
