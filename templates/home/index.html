@@ -10,15 +10,15 @@
 {% block content %}
 <head>
 
-  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/nucleo-icons.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/nucleo-svg.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-svg.css">
 
-  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.min.css">
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
 
-   <link href="../../static/assets/css/starry.css" rel="stylesheet" type="text/css"/>
+   <link href="{{ ASSETS_ROOT }}/css/starry.css" rel="stylesheet" type="text/css"/>
 
 </head>
  <style type="text/css">
@@ -43,7 +43,7 @@
 <header>
   <div class="page-header section-height-100">
     <div class="oblique position-absolute top-0 h-100 d-md-block d-none">
-      <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../../static/assets/img/main.jpg')"></div>
+      <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('{{ ASSETS_ROOT }}/img/main.jpg')"></div>
 
     </div>
     <div class="container-fluid">
@@ -272,14 +272,14 @@ and our Artificial Intelligence transforms your words into art. </p>
 <!-- Specific JS goes HERE --> 
 {% block javascripts %}
 
-  <script src="../../static/assets/js/plugins/countup.min.js"></script>
-  <script src="../../static/assets/js/plugins/choices.min.js"></script>
-  <script src="../../static/assets/js/plugins/rellax.min.js"></script>
-  <script src="../../static/assets/js/plugins/tilt.min.js"></script>
-  <script src="../../static/assets/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/countup.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/rellax.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/tilt.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/plugins/choices.min.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <script src="../../static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
   <script type="text/javascript">
     if (document.getElementById('state1')) {
       const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
