@@ -510,9 +510,6 @@ body {
     flex: 1 1 0%;
   }
 
-  .lg\:flex-auto {
-    flex: 1 1 auto;
-  }
 
   .lg\:flex-initial {
     flex: 0 1 auto;
@@ -547,7 +544,10 @@ body {
 }
 
 .grid-col-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  g
+  .lg\:flex-auto {
+    flex: 1 1 auto;
+  }rid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-col-4 {
@@ -1080,8 +1080,7 @@ button:active {
 
 button:hover,
 button:focus {
-  background-color: hsl(var(--light-blue-900));
-  color: hsl(var(--white));
+ 
 }
 
 button:focus-visible {
@@ -1113,8 +1112,8 @@ button:disabled {
 
 .button--simple:hover,
 .button--simple:focus {
-  background-color: transparent;
-  color: hsl(var(--light-blue-900));
+  
+  
 }
 
 /* ==========================================================================
@@ -1123,7 +1122,7 @@ button:disabled {
 
 .container2 {
   max-width: 80rem; /* 800px */
-  width: 60%;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -3082,11 +3081,7 @@ button:disabled {
 
 @media only screen and (min-width: 640px) {
   .progress-form__tabs-item[aria-disabled="true"] {
-    --button-background-color: transparent;
-    --button-text-color: hsl(var(--blue-100));
-
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
+    
   }
 }
 
@@ -3467,6 +3462,10 @@ ol.linenums {
 
     .run{
   font-size: 4vw;}
+
+  .container2 {
+    
+    width: 60%;
 
 
   }
