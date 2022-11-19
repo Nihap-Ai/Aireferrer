@@ -67,11 +67,21 @@ def form(request):
         
       
        
-        YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
+      
         PROMPT = inp+art_type
-        client = replicate.Client(api_token=YOUR_API_TOKEN)
-        model = client.models.get("stability-ai/stable-diffusion")
-        image_urls = model.predict(prompt=PROMPT)
+        access_token = "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"
+        
+ 
+        model_id = "CompVis/stable-diffusion-v1-4"
+        device = "cuda"
+    
+        pipe = StableDiffusionPipeline.from_pretrained(model_id, use_auth_token=access_token)
+        pipe = pipe.to(device)
+    
+        prompt = inp
+        with autocast("cuda"):
+            image = pipe(PROMPT, guidance_scale=7.5).images[0]  
+        image.save('/outpage/hello.png') 
         img_name = inp[:12]
 
         print(PROMPT)
