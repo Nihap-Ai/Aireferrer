@@ -142,7 +142,7 @@
 
 </div>
 
-<section class="pt-5 flexx2" style=" padding-top: -30rem !important;">
+<section id="output" class="pt-5 flexx2" style=" padding-top: -30rem !important;" >
     <div class="container">
       <div class="row">
         
@@ -154,7 +154,7 @@
           
           </div>
             
-                     <h4 class="text-center">Will be here 👉👉👉</h4>
+                     <h4  class="text-center toBeReplaced"><span>Will be here 👇👇👇</span></h4>
 
           </div>
         </div>
@@ -176,7 +176,7 @@
     </div>
   </section>
 
-<style type="text/css">
+<style type="text/css"> 
 
  
 
@@ -3104,7 +3104,6 @@ button:disabled {
 
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
 }
 
 .cc-selector input{
@@ -3469,6 +3468,21 @@ ol.linenums {
   font-size: 4vw;}
 
 .container2 {width: 60%;}
+
+
+ .toBeReplaced span{
+            display: none;
+        }
+        .toBeReplaced:after {
+            content: "Will be here 👉👉👉";
+        }
+
+.cc-selector{
+
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
   }
 
   
@@ -3645,6 +3659,8 @@ ol.linenums {
 
 
   <script type="text/javascript">
+
+    document.getElementById("{{hider}}").style.display = "none";
 
   
   console.clear();
