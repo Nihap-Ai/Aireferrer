@@ -11,13 +11,13 @@
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
+  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.css">
 
-  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
+  <link rel="stylesheet" href="../../static/assets/css/nucleo-icons.css">
 
-  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-svg.css">
+  <link rel="stylesheet" href="../../static/assets/css/nucleo-svg.css">
 
-  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
+  <link rel="stylesheet" href="../../static/assets/css/soft-design-system.min.css">
 </head>
 
 <div class="mx-auto container2" style="margin-top: 120px;">
@@ -510,6 +510,9 @@ body {
     flex: 1 1 0%;
   }
 
+  .lg\:flex-auto {
+    flex: 1 1 auto;
+  }
 
   .lg\:flex-initial {
     flex: 0 1 auto;
@@ -544,10 +547,7 @@ body {
 }
 
 .grid-col-3 {
-  g
-  .lg\:flex-auto {
-    flex: 1 1 auto;
-  }rid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-col-4 {
@@ -1080,7 +1080,8 @@ button:active {
 
 button:hover,
 button:focus {
- 
+  background-color: hsl(var(--light-blue-900));
+  color: hsl(var(--white));
 }
 
 button:focus-visible {
@@ -1112,8 +1113,8 @@ button:disabled {
 
 .button--simple:hover,
 .button--simple:focus {
-  
-  
+  background-color: transparent;
+  color: hsl(var(--light-blue-900));
 }
 
 /* ==========================================================================
@@ -3081,7 +3082,11 @@ button:disabled {
 
 @media only screen and (min-width: 640px) {
   .progress-form__tabs-item[aria-disabled="true"] {
-    
+    --button-background-color: transparent;
+    --button-text-color: hsl(var(--blue-100));
+
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
   }
 }
 
@@ -3108,14 +3113,14 @@ button:disabled {
        -moz-appearance:none;
             appearance:none;
 }
-.type1{background-image:url({{ ASSETS_ROOT }}/img/Art-type1.jpg);}
-.type2{background-image:url({{ ASSETS_ROOT }}/img/Art-type2.jpg);}
-.type3{background-image:url({{ ASSETS_ROOT }}/img/Art-type3.jpg);}
-.type4{background-image:url({{ ASSETS_ROOT }}/img/Art-type4.jpg);}
-.type5{background-image:url({{ ASSETS_ROOT }}/img/Art-type5.jpg);}
-.type6{background-image:url({{ ASSETS_ROOT }}/img/Art-type6.jpg);}
-.type7{background-image:url({{ ASSETS_ROOT }}/img/Art-type7.jpg);}
-.type8{background-image:url({{ ASSETS_ROOT }}/img/Art-type8.jpg);border: 3px solid #102a42;}
+.type1{background-image:url(../../static/assets/img/Art-type1.jpg);}
+.type2{background-image:url(../../static/assets/img/Art-type2.jpg);}
+.type3{background-image:url(../../static/assets/img/Art-type3.jpg);}
+.type4{background-image:url(../../static/assets/img/Art-type4.jpg);}
+.type5{background-image:url(../../static/assets/img/Art-type5.jpg);}
+.type6{background-image:url(../../static/assets/img/Art-type6.jpg);}
+.type7{background-image:url(../../static/assets/img/Art-type7.jpg);}
+.type8{background-image:url(../../static/assets/img/Art-type8.jpg);border: 3px solid #102a42;}
 
 .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector input:checked +.drinkcard-cc{
@@ -3463,12 +3468,10 @@ ol.linenums {
     .run{
   font-size: 4vw;}
 
-  .container2 {
-    
-    width: 60%;
-
-
+.container2 {width: 60%;}
   }
+
+  
 
   .row{
 
