@@ -26,8 +26,10 @@ image_urls=['../../static/assets/img/temple.jpg','nothing']
 
 R_PROMPT="temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epic, concept art, Matte painting, background, mist, photo-realistic, concept art, volumetric light, cinematic epic + rule of thirds octane render, 8k, corona render, movie concept art, octane render, cinematic, trending on artstation, movie concept art, cinematic composition , ultra-detailed, realistic , hyper-realistic , volumetric lighting, 8k –ar 2:3 –test –uplight"
 img_name = R_PROMPT[:12]
+
+hider = 'output'
 def form(request):
-    global image_urls,R_PROMPT,img_name
+    global image_urls,R_PROMPT,img_name,hider
 
     if request.method == 'POST':
         inp = request.POST.get("inp")
@@ -63,9 +65,13 @@ def form(request):
 
 
         else:
-            print("Errorrrrrr")
+            art_type = "nothing";
         
-      
+        if a_type == "nothing":
+            hider = "output";
+
+        else:
+            hider = "nothing";  
        
         YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
         PROMPT = inp+art_type
@@ -78,9 +84,9 @@ def form(request):
         R_PROMPT = inp
         print(image_urls[0])
 
-    return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": R_PROMPT,"img_name": img_name})
+
+    return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": R_PROMPT,"img_name": img_name, "hider": hider})
 
 
  
 
- 
