@@ -3651,7 +3651,7 @@ ol.linenums {
   <script src="{{ ASSETS_ROOT }}/js/poppup.js"></script>
   <script src="test.js"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+
   <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
 
 
@@ -3659,10 +3659,21 @@ ol.linenums {
 
 
   <script type="text/javascript">
+    
 
-    document.getElementById("{{hider}}").style.display = "none";
 
-  
+  var abc = "{{hider}}";
+
+
+  if (abc == "output") {
+    document.getElementById("output").style.display = "none";
+
+} else if (abc == "demo") {
+  document.getElementById("output").style.display = "display";
+
+}
+
+ 
   console.clear();
 
 function ready(fn) {
