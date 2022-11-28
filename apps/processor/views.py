@@ -48,7 +48,9 @@ def form(request):
        
         YOUR_API_TOKEN = "aeca9b7305692d85ad075f8b6a609fd1b012ffe3"
         PROMPT = inp
-      
+        client = replicate.Client(api_token=YOUR_API_TOKEN)
+        model = client.models.get("stability-ai/stable-diffusion")
+        image_urls = model.predict(prompt=PROMPT)
         img_name = PROMPT[:12]
 
         
