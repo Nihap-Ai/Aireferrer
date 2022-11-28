@@ -52,7 +52,7 @@ def form(request):
         model = client.models.get("stability-ai/stable-diffusion")
         image_urls = model.predict(prompt=PROMPT)
         img_name = PROMPT[:12]
-
+ 
         
 
         print(image_urls[0])
