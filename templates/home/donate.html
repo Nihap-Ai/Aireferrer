@@ -1,0 +1,236 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} About US {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} about-us {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation.html" %}
+
+<head>
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-svg.css">
+
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+
+</head>
+
+<!-- -------- START HEADER 1 w/ text and image on right ------- -->
+<div class="page-header">
+  <div class="position-absolute fixed-top ms-auto w-50 h-100 rounded-3 z-index-0 d-none d-sm-none d-md-block me-n4" style="background-image: url(https://appsrv1-147a1.kxcdn.com/soft-ui-design-v1.0.1/img/curved-images/curved11.jpg); background-size: cover;">
+  </div>
+  <div class="container py-7">
+    <div class="row">
+      <div class="col-lg-7 d-flex justify-content-center flex-column">
+        <div class="card card-body d-flex justify-content-center shadow-lg p-5 blur align-items-center">
+          <h3 class="text-center">Donate us ❤</h3>
+          <p class="text-center">If you like this website and want to support us, please consider making a donation ❤️</p>
+          <form role="form" id="contact-form" method="post" autocomplete="off">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+              
+                  <div class="input-group mb-4">
+                    <a href="https://www.paypal.com/donate/?hosted_button_id=3PMPVCP75ZVEN" class="w-100"><button type="button" class="btn bg-gradient-primary mt-4 w-100"><i class="fa fa-paypal" aria-hidden="true"></i> Paypal</button></a>
+                  </div>
+                </div>
+                <div class="col-md-6 ps-2">
+                 
+                  <div class="input-group">
+                    <a href="https://www.buymeacoffee.com/donate.us.now" class="w-100"><button type="button" class="btn bg-gradient-primary mt-4 w-100"><i class="fa fa-paypal" aria-hidden="true"></i>  Buy me a coffee</button></a>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mb-4">
+                <label>Bitcoin (BTC)</label>
+                <div class="input-group">
+                <span class="mail-info w-100">
+                  <span id="link" class="mail-text w-100" tooltip="Click to Copy" tooltip-position="bottom">1LV1eQ66gZvMnGvnteDSdUVEYeUxdqrmWL</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+              <div class="mb-4">
+                <label>ETH (ERC20)</label>
+                <div class="input-group">
+                <span class="mail-info">
+                  <span id="link" class="mail-text" tooltip="Click to Copy" tooltip-position="bottom">0x0441e92983d772462a1fd6bd0ba932687b8d5fae</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+
+              
+             <div class="mb-4">
+                <label>BNB (BEP20)</label>
+                <div class="input-group">
+                <span class="mail-info">
+                  <span id="link" class="mail-text" tooltip="Click to Copy" tooltip-position="bottom">0x0441e92983d772462a1fd6bd0ba932687b8d5fae</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+              <div class="mb-4">
+                <label>USDT (ERC20 / BEP20)</label>
+                <div class="input-group">
+                <span class="mail-info">
+                  <span id="link" class="mail-text" tooltip="Click to Copy" tooltip-position="bottom">0x0441e92983d772462a1fd6bd0ba932687b8d5fae</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+              <div class="mb-4">
+                <label>USDT (TRC20)</label>
+                <div class="input-group">
+                <span class="mail-info">
+                  <span id="link" class="mail-text" tooltip="Click to Copy" tooltip-position="bottom">TS9b1U3YwzHEg8vRsg7ARdf1UimS8ThLB7</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+             <div class="mb-4">
+                <label>BUSD (ERC20 / BEP20) </label>
+                <div class="input-group">
+                <span class="mail-info">
+                  <span id="link" class="mail-text" tooltip="Click to Copy" tooltip-position="bottom">0x0441e92983d772462a1fd6bd0ba932687b8d5fae</span>
+                  <i class="fa fa-files-o" aria-hidden="true" data-copytarget="#link"></i>
+                </span>
+              </div>
+              </div>
+
+
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  
+  #link {
+    background-color: #E8E8E8;
+    border-radius: 8px 8px 8px 8px;
+    font-size: 16px;
+    min-height: 47px;
+    padding: 6px 16px;
+    border: 1px solid #818a91;
+    color: #373a3c;
+    width: 100px;
+  }
+
+
+
+[tooltip]{
+    position: relative;
+}
+
+[tooltip]::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 6px 0 6px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    z-index: 100;
+    opacity: 0;
+    transition: all 250ms ease;
+}
+
+[tooltip]::after {
+    content: attr(tooltip);
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    transform: translateX(-50%) translateY(-100%);
+    background: #fff;
+    text-align: center;
+    color: #252f40;
+    padding: 4px 8px;
+    font-size: 14px;
+    min-width: 80px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 250ms ease;
+}
+
+[tooltip-position ='bottom']::before {
+    top: 100%;
+    margin-top: 10px;
+    transform: translateX(-50%) translatey(-100%) rotate(-180deg)
+}
+
+[tooltip-position='bottom']::after {
+    top: 100%;
+    margin-top: 10px;
+    transform: translateX(-50%) translateY(0);
+}
+
+[tooltip]:hover::after,
+[tooltip]:hover::before {
+    opacity: 1;
+}
+</style>
+
+
+
+
+{% endblock content %}
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+<script type="text/javascript">
+const copyMailId = document.querySelectorAll('.mail-text');
+
+copyMailId.forEach(copyText => {
+    copyText.addEventListener('click', () => {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(copyText);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            document.execCommand('copy');
+            selection.removeAllRanges();
+
+            const mailId = copyText.textContent;
+            copyText.textContent = 'Copied!';
+            copyText.classList.add('success');
+
+            setTimeout(() => {
+                copyText.textContent = mailId;
+                copyText.classList.remove('success');
+            }, 1000);
+        } catch (e) {
+            copyText.textContent = 'Couldn\'t copy, hit Ctrl+C!';
+            copyText.classList.add('error');
+
+            setTimeout(() => {
+                errorMsg.classList.remove('show');
+            }, 1200);
+        }
+    });
+});
+</script>
+{% endblock javascripts %}

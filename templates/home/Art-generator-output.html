@@ -1,0 +1,337 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} About US {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} about-us {% endblock body_class %}
+
+{% block content %}
+
+  {% include "includes/navigation.html" %}
+
+
+<section class="pt-5 flexx2" style=" padding-top: -30rem !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1" style="margin-right: 3% !important; ">
+<br><br><br>
+          <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
+
+           
+            <img src="{{image_urls}}" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+           
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12 order-1 order-md-1 order-lg-1">
+          <div class="p-3" style="padding-top: 1rem !important;">
+           <div class="card d-flex flexxed justify-content-center p-4 shadow-lg" >
+             <div class="text-center">
+            <h3 class="text-center text-gradient text-primary">Your Art Was Successfully Created</h3>
+           
+            <img src="../../static/assets/img/pass.png" width="50%" alt="">
+
+          
+          </div>
+
+            <button type="button" data-href="{{image_urls}}" download="{{img_name}}...aireferrer.png" onclick='forceDownload(this)' class="btn bg-gradient-dark w-100" >Download</button>
+            <button type="button" class="btn bg-gradient-dark w-100">Share</button> 
+
+           
+          </div>
+        </div>
+      </div>
+
+          </div><div><pre class="prettyprint lang-html">
+{{PROMPT}}
+</pre></div>
+
+      </div>
+  
+    </div>
+  </section>
+
+
+<style type="text/css">
+  /* Progress Bar Placement & Styling */
+#progressive {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    top: 70%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+}
+
+/* Transition speed for progress bar */
+.six-sec-ease-in-out {
+    -webkit-transition: width 6s ease-in-out;
+    -moz-transition: width 20s ease-in-out;
+    -ms-transition: width 20s ease-in-out;
+    -o-transition: width 20s ease-in-out;
+    transition: width 20s ease-in-out;
+}
+
+#shadow {
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+
+
+pre.prettyprint {
+  white-space: pre-wrap;
+  padding:10px 30px;
+  margin:0;
+  font-size:14px;
+}
+
+pre.prettyprint script.pre-script{display:block;}
+
+/* ========================
+//#google-prettify-monokai-theme
+//#Version: 0.3
+//#Author: RaphaelDDL
+//#Github: https://github.com/RaphaelDDL/google-prettify-monokai-theme/
+//For use with Google Code Prettify, HTML Syntax only
+//======================== */
+
+pre .str, code .str { color: #e6db5a; } /* string */
+pre .kwd, code .kwd { color: #66d9ef; } /* keyword */
+pre .com, code .com { color: #75715e; font-style: italic; } /* comment */
+pre .typ, code .typ { color: #66d9ef; } /* type */
+pre .lit, code .lit { color: #ae81ff; } /* literal */
+pre .pun, code .pun { color: #fff; } /* punctuation */
+pre .pln, code .pln { color: #fff; } /* plaintext */
+pre .tag, code .tag { color: #f92672; } /* html/xml tag */
+pre .atn, code .atn { color: #a6e22a; } /* html/xml attribute name */
+pre .atv, code .atv { color: #e6db74; } /* html/xml attribute value */
+pre .dec, code .dec { color: #ae81ff; } /* decimal */
+
+pre.prettyprint, code.prettyprint {
+  background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+
+  font-family: consolas, menlo, courier, monospace;
+}
+
+
+
+
+
+/* ------------------------
+//Section: class 'linenums' for line numbering
+//------------------------ */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #75715e;
+  list-style: decimal inside !important;
+} /* IE indents via margin-left */
+
+
+/* =============================================
+//Section: Print Styles (partially from Sunburn Theme)
+//================================================ */
+@media print {
+  pre.prettyprinted, pre.prettyprint, code.prettyprint {
+    background-color:#fff;
+    color:#000;
+  }
+
+  pre .str, code .str { color: #060; }
+  pre .kwd, code .kwd { color: #006; font-weight: bold; }
+  pre .com, code .com { color: #600; font-style: italic; }
+  pre .typ, code .typ { color: #404; font-weight: bold; }
+  pre .lit, code .lit { color: #044; }
+  pre .pun, code .pun { color: #440; }
+  pre .pln, code .pln { color: #000; }
+  pre .tag, code .tag { color: #006; font-weight: bold; }
+  pre .atn, code .atn { color: #404; }
+  pre .atv, code .atv { color: #060; }
+}
+
+.imgss{
+  border: 2px solid black;
+}
+
+ 
+@media (min-width: 912px) {
+    .flexx {
+   margin-left: 10rem !important;
+    } 
+
+    .run{
+  font-size: 4vw;}
+
+
+  }
+@media (min-width: 912px) {
+    .flexx2 {
+  
+
+
+    } 
+  }
+
+.mt-99 {
+  margin-top: -2rem !important; }
+  
+.run{
+
+  text-align: center;
+  font-size: 7vw;
+  margin-top: 30%;
+
+  
+}
+.run2{
+  text-align: center;
+  
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-popup {
+  position: fixed;
+  left: 0;
+  top: 30px;
+  margin: 0;
+  width: 100%;
+  height: 450px;
+  background-color: rgb(255 255 255);
+  border-radius: 5px;
+  z-index: 15;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all .5s ease;
+   margin-top: 100px;
+  /*overflow: hidden;*/
+}
+
+.main-popup.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
+  transition: all .5s ease;
+   margin-top: 100px;
+}
+
+@media (min-width: 500px) {
+  .main-popup {
+    width: 500px;
+    left: 50%;
+    margin: 0 0 0 -250px;
+  }
+}
+
+.popup-header {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  height: 62px;
+  width: 100%;
+  left: 10%;
+  top: 10%;
+}
+
+#popup-close-button a {
+  position: absolute;
+  right: 10px;
+  top: -30px;
+  width: 22px;
+  height: 22px;
+}
+
+#popup-close-button a::before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 0;
+  width: 3px;
+  height: 25px;
+  background-color: #fff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+.popup-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+.popup-header ul li {
+  text-align: center;
+  list-style: none;
+  width: 50%;
+  float: left;
+}
+
+.popup-header ul li a {
+  display: block;
+  padding: 20px 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+
+</style>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="{{ ASSETS_ROOT }}/js/plugins/countup.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+<script type="text/javascript">
+  
+
+       function forceDownload(link){
+    var url = link.getAttribute("data-href");
+    var fileName = link.getAttribute("download");
+    link.innerText = "Working...";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.responseType = "blob";
+    xhr.onload = function(){
+        var urlCreator = window.URL || window.webkitURL;
+        var imageUrl = urlCreator.createObjectURL(this.response);
+        var tag = document.createElement('a');
+        tag.href = imageUrl;
+        tag.download = fileName;
+        document.body.appendChild(tag);
+        tag.click();
+        document.body.removeChild(tag);
+        link.innerText="Download";
+    }
+    xhr.send();
+}
+</script>
+{% endblock javascripts %}
