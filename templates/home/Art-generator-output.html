@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %} About US {% endblock title %}
+{% block title %} Art-Output {% endblock title %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -10,9 +10,13 @@
 {% block content %}
 
   {% include "includes/navigation.html" %}
+  <head>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
+<body onload="changeurl()">
 
-
-<section class="pt-5 flexx2" style=" padding-top: -30rem !important;">
+<section class="pt-5 flexx2" style=" padding-top: 5rem !important;">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1" style="margin-right: 3% !important; ">
@@ -20,7 +24,7 @@
           <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
 
            
-            <img src="{{image_urls}}" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+            <img src="url" id="out-img" alt="{{image_urls}}" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
            
           </div>
         </div>
@@ -36,7 +40,33 @@
           </div>
 
             <button type="button" data-href="{{image_urls}}" download="{{img_name}}...aireferrer.png" onclick='forceDownload(this)' class="btn bg-gradient-dark w-100" >Download</button>
-            <button type="button" class="btn bg-gradient-dark w-100">Share</button> 
+            <button type="button" class="btn bg-gradient-dark w-100"><i class="fas fa-hand-point-down"></i>  Share <i class="fas fa-hand-point-down"></i></button> 
+            <ul class="d-flex flex-row ms-7 nav">
+              <li class="nav-item">
+                <a class="nav-link pe-1" id="facebook" href="https://www.facebook.com" target="_blank">
+                  <i class="fab fa-facebook text-lg opacity-8"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pe-1" id="twitter" href="https://twitter.com/" target="_blank">
+                  <i class="fab fa-twitter text-lg opacity-8"></i>
+                </a>
+              </li>
+              
+              
+              <li class="nav-item">
+                <a  id="pinterest" class="nav-link pe-1" href="https://www.instagram.com" target="_blank">
+                  <i class="fab fa-pinterest text-lg opacity-8"></i>
+                </a>
+              </li>
+              <button id="clone" onclick="copyText()" >
+              <li class="nav-item">
+                <a class="nav-link pe-1"  target="_blank">
+                  <i class="fa fa-clone text-lg opacity-8"></i>
+                </a>
+              </li>
+</button>
+            </ul>
 
            
           </div>
@@ -44,16 +74,47 @@
       </div>
 
           </div><div><pre class="prettyprint lang-html">
-{{PROMPT}}
-</pre></div>
-
-      </div>
-  
+PROMPTtttt
+</pre></div><br><br>
+<div class="donate">
+<h6 class="text-center text-white"> We somehow manage this site as a team and plan to develop it as more useful site for people. But we are suffering financially and we are kindly waiting for your help.</h6>
+      <div style="padding-left: 38%; padding-right: 38%;">
+              <a href="/Donate"><button type="button" class="btn bg-gradient-light w-100">Donate   ❤</button></a> 
+</div></div>
     </div>
   </section>
-
+</body>
 
 <style type="text/css">
+
+     .copy-notification {
+            color: #ffffff;
+            background-color: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 30px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            margin-top: -30px;
+            margin-left: -85px;
+            display: none;
+            text-align:center;
+        }
+
+  #clone{
+
+    background-color: transparent;
+    border: none;
+
+
+  }
+  .donate{
+    padding-top: 2rem;
+    border-radius: 20px;
+    background-color: #252f40;
+    color: #fff;
+  }
   /* Progress Bar Placement & Styling */
 #progressive {
     position: absolute;
@@ -310,7 +371,142 @@ ol.linenums {
 
   <script src="{{ ASSETS_ROOT }}/js/plugins/countup.min.js"></script>
   <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+    <script type="text/javascript">
+
+       
+    </script>
+
 <script type="text/javascript">
+
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var furl = urlParams.get('url');
+var fprompt = urlParams.get('prompt');
+var imgurl = btoa('{{image_urls}}');
+var txtprompt = btoa('{{PROMPT}}');
+
+
+
+
+var url = atob(furl);
+var prompt = atob(fprompt);
+
+
+
+ function copyText() {
+          
+            /* Copy text into clipboard */
+           $(document).ready(function () {
+            $("#clone").click(function (event) {
+                event.preventDefault();
+                var queryString = window.location.search;
+                var urlParams = new URLSearchParams(queryString);
+                var furl = urlParams.get('url');
+                var fprompt = urlParams.get('prompt');
+                var imgurl = btoa('{{image_urls}}');
+                var txtprompt = btoa('{{PROMPT}}');
+
+
+
+
+                var url = atob(furl);
+                var prompt = atob(fprompt);
+               
+                
+                var link = "https://aireferrer.com/Art-output/?url="+furl+"&prompt="+fprompt
+                CopyToClipboard(link, true, "Link Copied");
+            });
+        });
+
+        function CopyToClipboard(value, showNotification, notificationText) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(value).select();
+            document.execCommand("copy");
+            $temp.remove();
+
+            if (typeof showNotification === 'undefined') {
+                showNotification = true;
+            }
+            if (typeof notificationText === 'undefined') {
+                notificationText = "Copied to clipboard";
+            }
+
+            var notificationTag = $("div.copy-notification");
+            if (showNotification && notificationTag.length == 0) {
+                notificationTag = $("<div/>", { "class": "copy-notification", text: notificationText });
+                $("body").append(notificationTag);
+
+                notificationTag.fadeIn("slow", function () {
+                    setTimeout(function () {
+                        notificationTag.fadeOut("slow", function () {
+                            notificationTag.remove();
+                        });
+                    }, 500);
+                });
+            }
+        }
+
+  
+  }
+
+
+
+  function changeurl(url){
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var furl = urlParams.get('url');
+    var fprompt = urlParams.get('prompt');
+    
+   
+
+    var url = atob(furl);
+    var prompt = atob(fprompt);
+
+    if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
+
+       window.location.replace("/Art-output/?url="+imgurl+"&prompt="+txtprompt);
+      
+
+    } else{
+      url = url
+    }
+   
+   
+   
+
+    if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
+
+      url = "{{image_urls}}"
+
+    } else{
+      url = url
+    }
+
+    if (prompt == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
+
+      prompt = "{{PROMPT}}"
+
+    } else{
+      prompt = prompt
+    }
+    document.body.innerHTML = document.body.innerHTML.replace('PROMPTtttt', prompt);
+
+    document.getElementById('out-img').src=url;
+
+    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + imgurl + "&prompt="+txtprompt;
+
+    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&prompt="+txtprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+txtprompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
+
+    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+txtprompt+"'" + imgurl;
+
+   
+
+ 
+    }
+
+
+
   
 
        function forceDownload(link){
