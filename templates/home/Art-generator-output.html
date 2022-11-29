@@ -74,7 +74,7 @@
       </div>
 
           </div><div><pre class="prettyprint lang-html">
-PROMPTtttt
+PROMPT
 </pre></div><br><br>
 <div class="donate">
 <h6 class="text-center text-white"> We somehow manage this site as a team and plan to develop it as more useful site for people. But we are suffering financially and we are kindly waiting for your help.</h6>
@@ -373,19 +373,14 @@ ol.linenums {
   <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
     <script type="text/javascript">
 
-       
-    </script>
+  var queryString = window.location.search;
+  var urlParams = new URLSearchParams(queryString);
+  var furl = urlParams.get('url');
+  var fprompt = urlParams.get('prompt');
+  var imgurl = btoa('{{image_urls}}');
+  
 
-<script type="text/javascript">
-
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-var furl = urlParams.get('url');
-var fprompt = urlParams.get('prompt');
-var imgurl = btoa('{{image_urls}}');
-var txtprompt = btoa('{{PROMPT}}');
-
-
+  
 
 
 var url = atob(furl);
@@ -404,7 +399,7 @@ var prompt = atob(fprompt);
                 var furl = urlParams.get('url');
                 var fprompt = urlParams.get('prompt');
                 var imgurl = btoa('{{image_urls}}');
-                var txtprompt = btoa('{{PROMPT}}');
+                
 
 
 
@@ -457,30 +452,29 @@ var prompt = atob(fprompt);
     var urlParams = new URLSearchParams(queryString);
     var furl = urlParams.get('url');
     var fprompt = urlParams.get('prompt');
+    var imgurl = btoa('{{image_urls}}');
+    
     
    
 
     var url = atob(furl);
     var prompt = atob(fprompt);
 
-    if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
-
-       window.location.replace("/Art-output/?url="+imgurl+"&prompt="+txtprompt);
-      
-
-    } else{
-      url = url
-    }
+  
    
-   
+    
    
 
     if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
 
       url = "{{image_urls}}"
 
+
+
     } else{
-      url = url
+      url = url;
+     
+      
     }
 
     if (prompt == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
@@ -490,15 +484,16 @@ var prompt = atob(fprompt);
     } else{
       prompt = prompt
     }
-    document.body.innerHTML = document.body.innerHTML.replace('PROMPTtttt', prompt);
+    document.body.innerHTML = document.body.innerHTML.replace('PROMPT', prompt);
+    
 
     document.getElementById('out-img').src=url;
 
-    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + imgurl + "&prompt="+txtprompt;
+    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + imgurl + "&prompt="+fprompt;
 
-    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&prompt="+txtprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+txtprompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
+    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&prompt="+fprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+fprompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
 
-    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+txtprompt+"'" + imgurl;
+    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+fprompt+"'" + imgurl;
 
    
 
@@ -529,5 +524,8 @@ var prompt = atob(fprompt);
     }
     xhr.send();
 }
-</script>
+       
+    </script>
+
+
 {% endblock javascripts %}
