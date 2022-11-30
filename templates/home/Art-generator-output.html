@@ -24,7 +24,7 @@
           <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
 
            
-            <img src="url" id="out-img" alt="{{image_urls}}" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+            <img src="url" id="out-img" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
            
           </div>
         </div>
@@ -89,7 +89,7 @@ PROMPT
 
      .copy-notification {
             color: #ffffff;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(37, 47, 64,0.9);
             padding: 20px;
             border-radius: 30px;
             position: fixed;
@@ -471,11 +471,18 @@ var prompt = atob(fprompt);
 
 
 
-    } else{
+    }else if (url == 'ée'){
+      window.location.replace("/Art-Generator");
+
+    }else{
       url = url;
+      
+
      
       
-    }
+    };
+
+    
 
     if (prompt == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
 
@@ -489,11 +496,11 @@ var prompt = atob(fprompt);
 
     document.getElementById('out-img').src=url;
 
-    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + imgurl + "&prompt="+fprompt;
+    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + url + "&prompt="+prompt;
 
-    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&prompt="+fprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+fprompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
+    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+url+"&prompt="+fprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
 
-    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+imgurl+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+fprompt+"'" + imgurl;
+    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+url+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'" + url;
 
    
 
