@@ -25,20 +25,15 @@ def donate(request):
 
 
 
- def form(request):
-    if request.method == 'POST':
-        inp = request.POST.get("inp")
-        
-        print(inp)
 
 
         
 image_urls=['../../static/assets/img/temple.jpg','nothing']
-
+RPROMPT = 'Nothing'
 PROMPT="temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epic, concept art, Matte painting, background, mist, photo-realistic, concept art, volumetric light, cinematic epic + rule of thirds octane render, 8k, corona render, movie concept art, octane render, cinematic, trending on artstation, movie concept art, cinematic composition , ultra-detailed, realistic , hyper-realistic , volumetric lighting, 8k –ar 2:3 –test –uplight"
 img_name = PROMPT[:12]
 def form(request):
-    global image_urls,PROMPT,img_name
+    global image_urls,PROMPT,img_name,RPROMPT
 
     if request.method == 'POST':
         inp = request.POST.get("inp")
@@ -58,10 +53,10 @@ def form(request):
 
         print(image_urls[0])
 
-    return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name})
+    return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name, "RPROMPT": RPROMPT})
  
 
 def output(request):
     
 
-    return render(request, 'home/Art-generator-output.html',{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name})
+    return render(request, 'home/Art-generator-output.html',{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name, "RPROMPT": RPROMPT})
