@@ -25,7 +25,11 @@ def donate(request):
 
 
 
- 
+ def form(request):
+    if request.method == 'POST':
+        inp = request.POST.get("inp")
+        
+        print(inp)
 
 
         
