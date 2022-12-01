@@ -41,7 +41,7 @@
 
             <button type="button" data-href="{{image_urls}}" download="{{img_name}}...aireferrer.png" onclick='forceDownload(this)' class="btn bg-gradient-dark w-100" >Download</button>
             <button type="button" class="btn bg-gradient-dark w-100"><i class="fas fa-hand-point-down"></i>  Share <i class="fas fa-hand-point-down"></i></button> 
-            <ul class="d-flex flex-row ms-7 nav">
+            <ul class="d-flex flex-row ms-888 nav">
               <li class="nav-item">
                 <a class="nav-link pe-1" id="facebook" href="https://www.facebook.com" target="_blank">
                   <i class="fab fa-facebook text-lg opacity-8"></i>
@@ -140,7 +140,9 @@ PROMPT
 
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
-
+ .ms-888{
+    margin-left: 3.5rem;
+  }
 
 
 pre.prettyprint {
@@ -228,8 +230,13 @@ ol.linenums {
     .run{
   font-size: 4vw;}
 
+  .ms-888{
+    margin-left: 6rem;
+  }
+
 
   }
+
 @media (min-width: 912px) {
     .flexx2 {
   
@@ -448,6 +455,7 @@ var prompt = atob(fprompt);
 
 
   function changeurl(url){
+
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var furl = urlParams.get('url');
@@ -461,15 +469,19 @@ var prompt = atob(fprompt);
     var prompt = atob(fprompt);
 
   
-   
+  
     
    
 
     if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
 
       url = "{{image_urls}}"
+      prompt = "{{PROMPT}}"
+      var furl = btoa(url);
+      var fprompt = btoa(prompt);
 
 
+      window.location.replace("/Art-output/?url="+furl+"&prompt="+fprompt);
 
     }else if (url == 'ée'){
       window.location.replace("/Art-Generator");
@@ -482,6 +494,8 @@ var prompt = atob(fprompt);
       
     };
 
+
+
     
 
     if (prompt == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
@@ -491,16 +505,22 @@ var prompt = atob(fprompt);
     } else{
       prompt = prompt
     }
-    document.body.innerHTML = document.body.innerHTML.replace('PROMPT', prompt);
+   
+
+    if (prompt == 'ée'){
+      document.body.innerHTML = document.body.innerHTML.replace('PROMPT','');
+    } else{
+       document.body.innerHTML = document.body.innerHTML.replace('PROMPT', prompt);
+    }
     
 
     document.getElementById('out-img').src=url;
 
-    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + url + "&prompt="+prompt;
+    document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + furl + "&prompt="+fprompt;
 
-    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+url+"&prompt="+fprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
+    document.getElementById('twitter').href="https://twitter.com/intent/tweet?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+furl+"&prompt="+fprompt+"&text=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'"+"%20%23art%20%23AI%20%23AIART%20%23Aireferrer%20%23Art-generator ";
 
-    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+url+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'" + url;
+    document.getElementById('pinterest').href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D"+furl+"&prompt%3D"+fprompt+"&media="+url+"&description=%F0%9F%98%8DAwesome%20Art%20I%20Recently%20Created%20With%20Aireferrer%F0%9F%98%8D "+"'"+prompt+"'";
 
    
 
