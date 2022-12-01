@@ -15,3 +15,5 @@ torch
 gevent
 replicate
 accelerate
+mysql-connector-python
+mysql
