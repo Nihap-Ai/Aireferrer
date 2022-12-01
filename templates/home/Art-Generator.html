@@ -61,6 +61,9 @@
     height: 147px;
     margin-top: 14px;
     margin-left: 33%;">
+     <div class="text text-center">
+  Please Be Patient Until Your Art Create
+    </div>
                 </div><!--.popup-content-->
               </div><!--.main-popup-->
             </div>
@@ -88,6 +91,25 @@ temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epi
   </section>
 
 <style type="text/css">
+   .text {
+  animation: blink 1.5s infinite linear forwards;
+  font-weight:900;
+  /*Changes the boldness of the text.*/
+  font-size:20px;
+  /*Changes the size of the tex.*/
+} @keyframes blink
+/*Keyframes is how you start an animation then followed by the animation name.*/{
+  0% {
+    color:transparent;
+    /*It will start off transparent...*/
+  } 50% {
+    color:#252F40;
+    /*Then become white...*/
+  } 100% {
+    color:transparent;
+    /*And go back to being transparent again.*/
+  }
+}
   /* Progress Bar Placement & Styling */
 #progressive {
     position: absolute;
