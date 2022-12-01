@@ -10,11 +10,14 @@
 {% block content %}
 
   {% include "includes/navigation.html" %}
+  <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
 <br><br><br>
   <header>
     <div class="page-header section-height-85">
       <div>
-        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="{{ ASSETS_ROOT }}/img/Lady-Robot.jpeg">
+        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="{{ ASSETS_ROOT }}/img/contact.jpg">
       </div>
       <div class="container">
         <div class="row">
@@ -34,19 +37,19 @@
                     <div class="col-md-6">
                       <label>Full Name</label>
                       <div class="input-group mb-4">
-                        <input class="form-control" placeholder="Full Name" aria-label="Full Name" type="text">
+                        <input class="form-control" placeholder="Full Name" id="fname" aria-label="Full Name" type="text" name="full-name">
                       </div>
                     </div>
                     <div class="col-md-6 ps-md-2">
                       <label>Email</label>
                       <div class="input-group">
-                        <input type="email" class="form-control" placeholder="official@aireferrer.com">
+                        <input type="email" class="form-control" id="mail" placeholder="official@aireferrer.com">
                       </div>
                     </div>
                   </div>
                   <div class="form-group mb-0 mt-md-0 mt-4">
                     <label>How can we help you?</label>
-                    <textarea style="overflow:auto;resize:none" name="message" class="form-control" id="message" rows="6" placeholder="Describe your problem"></textarea>
+                    <textarea style="overflow:auto;resize:none" name="message"  class="form-control" id="message" rows="6" placeholder="Describe your problem"></textarea>
                   </div>
                   <div class="row">
                     <div class="col-md-12 text-center">
@@ -60,6 +63,16 @@
         </div>
       </div>
     </div>
+      <div class="modal fade loading" id="loading" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loading" aria-hidden="true">
+          <div class="modal-dialog  modal-dialog-centered">
+               <div class="modal-content">
+                    <div class="modal-body">
+                          Wait!! your message is loading to us...
+                    </div>
+                </div>
+           </div>
+      </div>
+</div>
   </header>
 
 {% endblock content %}
@@ -68,5 +81,32 @@
 {% block javascripts %}
 
   <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
+   <script type="text/javascript">
+  
+  $(document).on('submit','#contact-form',function(e){
+        e.preventDefault();
+        $.ajax({
+            type:'POST',
+            url:'{% url "contact" %}',
+            data:
+            {
+                fname:$("#fname").val(),
+                mail:$("#mail").val(),
+                msg:$("#message").val(),
+
+                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },beforeSend: function(){
+              $('#loading').modal('show');
+            },
+            success:function(){
+              window.location.replace("/");
+
+                   
+                  
+                    }
+            });
+                  e.preventDefault();
+        });
+    </script>
 
 {% endblock javascripts %}
