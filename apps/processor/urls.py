@@ -10,6 +10,8 @@ urlpatterns = [
     path('about-us/', views.about, name='about'),
     path('Art-output/', views.output, name='art_output'),
     path('Donate/', views.donate, name='donate'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+                        name='django.contrib.sitemaps.views.sitemap')
 
 
 
