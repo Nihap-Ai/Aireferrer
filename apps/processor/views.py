@@ -84,9 +84,10 @@ def form(request):
        
         YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
         PROMPT = inp
+        RPROMPT = "mdjrny-v4 style a highly detailed art of "+PROMPT+", 4 k resolution, trending on artstation, masterpiece, smooth, sharp focus,illustration, 8k,Super-Resolution, hyper realistic, super detailed,concept art"
         client = replicate.Client(api_token=YOUR_API_TOKEN)
         model = client.models.get("stability-ai/stable-diffusion")
-        image_urls = model.predict(prompt=PROMPT)
+        image_urls = model.predict(prompt=RPROMPT)
         img_name = PROMPT[:12]
 
         
