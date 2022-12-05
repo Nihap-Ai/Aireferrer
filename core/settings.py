@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'redirect_to_non_www.middleware.RedirectToNonWww',
 ]
 
 ROOT_URLCONF = 'core.urls'
