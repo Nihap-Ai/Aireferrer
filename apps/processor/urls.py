@@ -14,7 +14,7 @@ urlpatterns = [
     path('about-us/', views.about, name='about'),
     path('Art-output/', views.output, name='art_output'),
     path('Donate/', views.donate, name='donate'),
-    path('sitemap.html', views.sitemap, name = 'sitemap'),
+   
 
     
     
