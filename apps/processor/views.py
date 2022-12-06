@@ -49,6 +49,9 @@ def about(request):
 
 def donate(request):
         return render(request, 'home/donate.html')
+    
+def sitemap(request):
+        return render(request, 'home/sitemap.html')
 
 
 
