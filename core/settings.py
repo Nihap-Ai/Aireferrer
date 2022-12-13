@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+etnck%&$k55epg!f$!g+j(wiu*q1ia=)v#ex$$h^u1!jdma)2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS=['https://web-production-8b8c.up.railway.app','https://aireferrer.com','http://aireferrer.com','https://web-production-7d70.up.railway.app','http://web-production-7d70.up.railway.app ']
+CSRF_TRUSTED_ORIGINS=['https://web-production-8b8c.up.railway.app','https://aireferrer.com','http://aireferrer.com','https://web-production-bea3.up.railway.app']
 
 # Application definition
 
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'apps',
 
 
     # our apps
@@ -49,7 +48,6 @@ INSTALLED_APPS = [
     'apps.authentication.apps.AuthenticationConfig',
 ]
 SITE_ID = 1
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,8 +57,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'redirect_to_non_www.middleware.RedirectToNonWww',
+    
 ]
+APPEND_SLASH = False
 
 ROOT_URLCONF = 'core.urls'
 LOGIN_REDIRECT_URL = "register"
