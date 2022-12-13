@@ -121,21 +121,21 @@ def form(request):
 
   
 
-        #dataBase = mysql.connector.connect(
-       #     host ="containers-us-west-136.railway.app",
-        #    user ="root",
-       #     passwd ="qlK7pZsyw72HKjrvxGU7",
-        #    database ="railway",
-         #   port = "6330"
-         #   )
-       # cursorObject = dataBase.cursor()   
+        dataBase = mysql.connector.connect(
+            host ="containers-us-west-136.railway.app",
+            user ="root",
+            passwd ="qlK7pZsyw72HKjrvxGU7",
+            database ="railway",
+            port = "6330"
+           )
+        cursorObject = dataBase.cursor()   
    
-       # query = "INSERT INTO datas (url,prompt)\
-       # VALUES (%s, %s)"
-       # val = (image_urls[0],inp)
+        query = "INSERT INTO datas (url,prompt)\
+        VALUES (%s, %s)"
+        val = (img,inp)
              
-        #cursorObject.execute(query,val)
-        #dataBase.commit()
+        cursorObject.execute(query,val)
+        dataBase.commit()
 
     return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name, "RPROMPT": RPROMPT})
 
