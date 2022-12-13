@@ -19,16 +19,22 @@
 <section class="pt-5 flexx2" style=" padding-top: 5rem !important;">
     <div class="container">
       <div class="row">
-        <div class="col-lg-5 col-md-8 order-2 order-md-2 order-lg-1" style="margin-right: 3% !important; ">
-<br><br><br>
+        <div class="col-lg-5 col-md-8 order-1 order-md-1 order-lg-1" style="margin-right: 3% !important; ">
+<br>
           <div class="position-relative ms-lg-5 mb-0 mb-lg-0  d-md-block d-lg-block d-xl-block h-75" >
 
-           
-            <img src="url" id="out-img" class="w-100 imgss border-radius-xl mt-99 mb-5 ms-lg-5 position-relative z-index-5" alt="">
+   <p class="text-center">click image to download</p>        
+  <div class="bunch">
+    <img download="{{img_name}}-aireferrer.png" onclick='forceDownload(this)'  class="mike" id="out-img1" src="{{img122}}">
+    <img download="{{img_name}}-aireferrer.png" onclick='forceDownload(this)'  class="blake" id="out-img2" src="{{img222}}">
+    <img download="{{img_name}}-aireferrer.png" onclick='forceDownload(this)'  class="daniel" id="out-img3" src="{{img32}}">
+    <img download="{{img_name}}-aireferrer.png" onclick='forceDownload(this)'  class="miles" id="out-img4" src="{{img42}}" >
+  </div>
            
           </div>
         </div>
-        <div class="col-lg-5 col-md-12 order-1 order-md-1 order-lg-1">
+        <div class="col-lg-5 col-md-12 order-2 order-md-2 order-lg-1">
+          <br><br>
           <div class="p-3" style="padding-top: 1rem !important;">
            <div class="card d-flex flexxed justify-content-center p-4 shadow-lg" >
              <div class="text-center">
@@ -39,41 +45,14 @@
           
           </div>
 
-            <button type="button" data-href="{{image_urls}}" download="{{img_name}}...aireferrer.png" onclick='forceDownload(this)' class="btn bg-gradient-dark w-100" >Download</button>
-            <button type="button" class="btn bg-gradient-dark w-100"><i class="fas fa-hand-point-down"></i>  Share <i class="fas fa-hand-point-down"></i></button> 
-            <ul class="d-flex flex-row ms-888 nav">
-              <li class="nav-item">
-                <a class="nav-link pe-1" id="facebook" href="https://www.facebook.com" target="_blank">
-                  <i class="fab fa-facebook text-lg opacity-8"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link pe-1" id="twitter" href="https://twitter.com/" target="_blank">
-                  <i class="fab fa-twitter text-lg opacity-8"></i>
-                </a>
-              </li>
-              
-              
-              <li class="nav-item">
-                <a  id="pinterest" class="nav-link pe-1" href="https://www.instagram.com" target="_blank">
-                  <i class="fab fa-pinterest text-lg opacity-8"></i>
-                </a>
-              </li>
-              <button id="clone" onclick="copyText()" >
-              <li class="nav-item">
-                <a class="nav-link pe-1"  target="_blank">
-                  <i class="fa fa-clone text-lg opacity-8"></i>
-                </a>
-              </li>
-</button>
-            </ul>
-
+            <a href="/Art-Generator"><button type="button">Create More</button></a>
+            
            
           </div>
         </div>
-      </div>
+      </div><br><br>
 
-          </div><div><pre class="prettyprint lang-html">
+          </div><div><br><br><pre class="prettyprint lang-html">
 PROMPT
 </pre></div><br><br>
 <div class="donate">
@@ -86,6 +65,62 @@ PROMPT
 </body>
 
 <style type="text/css">
+
+.bunch {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+
+  float: left;
+  position: relative;
+  border: 3px solid #222;
+  box-shadow: 0 3px 12px 2px rgba(0,0,0,0.3);
+}
+.bunch img {
+  position: absolute;
+  display: block;
+  width: 197px;
+  height: 197px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+   -o-transition: all .3s ease-out;
+   transition: all .3s ease-out;
+}
+.bunch img:hover {
+  opacity: 1;
+}
+.bunch .miles {
+  left: 0;
+  top: 0;
+}
+.bunch .blake {
+  left: 0;
+  bottom: 0;
+}
+.bunch .mike {
+  right: 0;
+  top: 0;
+}
+.bunch .daniel {
+  right: 0;
+  bottom: 0;
+}
+.bunch img:hover,
+.bunch .active {
+  width: 400px;
+  height: 400px;
+  z-index: 10;
+  opacity: 1;
+}
+.credit {
+  text-align: center;
+  clear: left;
+}
+.credit a {
+  color: #fff;
+}
+
 
      .copy-notification {
             color: #ffffff;
@@ -467,32 +502,16 @@ var prompt = atob(fprompt);
 
     var url = atob(furl);
     var prompt = atob(fprompt);
-
-  
-  
+    
+    var url1 = url.replace(/&#x27;/g, '');
+    var url2 = url1.replace('[', '');
+    var url3 = url2.replace(']', '');
+    const urls= url3.split(',');
+    
     
    
 
-    if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
-
-      url = "{{image_urls}}"
-      prompt = "{{PROMPT}}"
-      var furl = btoa(url);
-      var fprompt = btoa(prompt);
-
-
-      window.location.replace("/Art-output/?url="+furl+"&prompt="+fprompt);
-
-    }else if (url == 'ée'){
-      window.location.replace("/Art-Generator");
-
-    }else{
-      url = url;
-      
-
-     
-      
-    };
+   
 
 
 
@@ -514,7 +533,12 @@ var prompt = atob(fprompt);
     }
     
 
-    document.getElementById('out-img').src=url;
+    document.getElementById('out-img1').src=urls[0];
+    document.getElementById('out-img2').src=urls[1];
+    document.getElementById('out-img3').src=urls[2];
+    document.getElementById('out-img4').src=urls[3];
+
+
 
     document.getElementById('facebook').href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faireferrer.com%2FArt-output%2F%3Furl%3D" + furl + "&prompt="+fprompt;
 
@@ -528,11 +552,32 @@ var prompt = atob(fprompt);
     }
 
 
+ if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
 
+      url = "{{img}}"
+      prompt = "{{PROMPT}}"
+      var furl = btoa(url);
+      var fprompt = btoa(prompt);
+
+      
+
+
+      window.location.replace("/Art-output/?url="+furl+"&prompt="+fprompt);
+
+    }else if (url == 'ée'){
+      window.location.replace("/Art-Generator");
+
+    }else{
+      url = url;
+      
+
+     
+      
+    };
   
 
        function forceDownload(link){
-    var url = link.getAttribute("data-href");
+    var url = link.getAttribute("src");
     var fileName = link.getAttribute("download");
     link.innerText = "Working...";
     var xhr = new XMLHttpRequest();
