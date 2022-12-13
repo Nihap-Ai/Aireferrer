@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.min.css">
 </head>
+<body>  
 
 
 <section class="pt-5 flexx2" style=" padding-top: -30rem !important;">
@@ -30,7 +31,9 @@
            <div class="card d-flex flexxed justify-content-center p-4 shadow-lg" >
              <div class="text-center">
             <h3 class="text-center text-gradient text-primary">Create Your AI Art Free</h3>
-          
+          <h1>
+          <?php echo "Connection established successfully...";
+          ?></h1>
           </div>
             
             <form role="form" id="subform" method="POST" autocomplete="off">
@@ -40,7 +43,20 @@
                   <div class="input-group mb-4">
                     <input class="form-control" placeholder="" aria-label="Text-prompt" type="text" name="inp" size="70" id="inp">
                   </div>
-                
+                  <label for="switch">Advanced Option</label><div>
+                  <label class="switch">
+              <input type="checkbox" name="graduate" id="switch">
+              <span class="slider round"></span>
+          </label></div>
+                  <div class="phd" style="display: none">
+                  <label>Init image</label>
+                <div class="input-group mb-4">
+                    <input class="form-control" type="file" id="imageInput" size="70" name="imageInput" accept="image/*">
+                  </div>
+                  <label>Mask image</label>
+                <div class="input-group mb-4">
+                    <input class="form-control"type="file" name="mask" size="70" id="mask">
+                  </div></div>
                   <button  class="create btn bg-gradient-primary w-100">Create</button>
                 <div class="overlay"></div>
                 <div class="main-popup">
@@ -88,9 +104,68 @@ temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epi
 
 </pre></div>
     </div>
-  </section>
+  </section></body>
 
 <style type="text/css">
+  .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
    .text {
   animation: blink 1.5s infinite linear forwards;
   font-weight:900;
@@ -397,7 +472,17 @@ ol.linenums {
 
   
 
-
+$(document).ready(function(){
+        $('[name="graduate"]').change(function(){
+            if($('[name="graduate"]:checked').is(":checked")){
+                $('.ug').hide();
+                $('.phd').show();
+            }else{
+                $('.ug').show();
+                $('.phd').hide();
+            }
+        });
+    });
 
 
     
@@ -504,8 +589,36 @@ function closePopup(popup) {
             });
                   e.preventDefault();
         });
-    </script>
 
+
+    </script>
+<script type="text/javascript">
+  alert("ddddd")
+  
+  $('#imageInput').change(function(){
+    var frm = new FormData();
+    frm.append('imageInput', input.files[0]);
+    $.ajax({
+        method: 'POST',
+        address: '/images',
+        data: frm,
+        contentType: false,
+        processData: false,
+        cache: false
+    });
+});
+
+file, header, er := this.GetFile("imageInput")
+if file != nil {
+    // some helpers 
+    // get the extension of the file  (import "path/filepath" for this)
+    extension := filepath.Ext(header.Filename)
+    // full filename
+    fileName := header.Filename
+    // save to server`enter code here`
+    err := this.SaveToFile("imageInput", somePathOnServer)
+}
+</script>
 
     <script type="text/javascript">
       
