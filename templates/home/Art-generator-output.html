@@ -503,6 +503,29 @@ var prompt = atob(fprompt);
     var url = atob(furl);
     var prompt = atob(fprompt);
     
+    
+    if (url == 'Qrtvfkjjfjnyiinngjswlefiuuuduhiuwqjqjqjkjddetgeugheuiuegharawjfoiroeu') {
+
+      url = "{{img}}"
+      prompt = "{{PROMPT}}"
+      var furl = btoa(url);
+      var fprompt = btoa(prompt);
+
+
+      window.location.replace("/Art-output/?url="+furl+"&prompt="+fprompt);
+
+    }else if (url == 'ée'){
+      window.location.replace("/Art-Generator");
+
+    }else{
+      url = url;
+      
+
+     
+      
+    };
+
+    
     var url1 = url.replace(/&#x27;/g, '');
     var url2 = url1.replace('[', '');
     var url3 = url2.replace(']', '');
