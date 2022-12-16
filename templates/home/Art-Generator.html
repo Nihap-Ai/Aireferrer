@@ -11,6 +11,9 @@
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
   <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/soft-design-system.css">
 
   <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/nucleo-icons.css">
@@ -42,7 +45,8 @@
                   <label>Text Prompt</label>
                   <div class="input-group mb-4">
                     <input class="form-control" placeholder="" aria-label="Text-prompt" type="text" name="inp" size="70" id="inp">
-                  </div>
+
+                  </div> <p class="text-center note">*Some words not allowed here it's will disappear automatically</p>
                   <!--<label for="switch">Advanced Option</label><div>
                   <label class="switch">
               <input type="checkbox" name="graduate" id="switch">
@@ -107,6 +111,11 @@ temple in ruines, forest, stairs, columns, cinematic, detailed, atmospheric, epi
   </section></body>
 
 <style type="text/css">
+
+  .note{
+    font-size: 0.8rem;
+    text-align: center;
+  }
   .switch {
   position: relative;
   display: inline-block;
@@ -470,6 +479,16 @@ ol.linenums {
 
   <script type="text/javascript">
 
+var forbiddenWords = ['allah', 'mohammed', 'mohamed','Muhammad','Prophet'];
+$(function () {
+  $('#inp').on('keyup', function(e) {
+    forbiddenWords.forEach(function(val, index) {
+      if (e.target.value.toUpperCase().indexOf(val.toUpperCase()) >= 0) {
+        e.target.value = e.target.value.replace(new RegExp( "(" + val + ")" , 'gi' ), '');
+      }
+    });
+  });
+});
   
 
 $(document).ready(function(){
