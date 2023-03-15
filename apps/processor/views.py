@@ -118,10 +118,11 @@ def form(request):
         
         print(img)
 
+
   
 
 
-    return render(request, "home/Art-Generator.html",{"image_urls": output, "PROMPT": PROMPT,"img_name": img_name, "RPROMPT": RPROMPT})
+    return render(request, "home/Art-Generator.html",{"image_urls": image_urls[0], "PROMPT": PROMPT,"img_name": img_name, "RPROMPT": RPROMPT})
 
  
 
