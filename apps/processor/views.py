@@ -7,7 +7,7 @@ import replicate
 import time
 import mysql.connector
 from django.core.files.storage import FileSystemStorage
-
+import os
  
 
 
@@ -96,15 +96,45 @@ def form(request):
         #'PORT':'6330',
     #}
 #}
-       
+        os.environ["REPLICATE_API_TOKEN"] ="9f720a466712b567cd24f7fe177377f2c961018a"
+
         YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
         PROMPT = inp
         RPROMPT = "mdjrny-v4 style a highly detailed art of "+PROMPT+", 4 k resolution, trending on artstation, masterpiece, smooth, sharp focus,illustration, 8k,Super-Resolution, hyper realistic, super detailed,concept art"
         
-        client = replicate.Client(api_token=YOUR_API_TOKEN)
-        model = client.models.get("prompthero/openjourney")
+        model = replicate.models.get("prompthero/openjourney")
         version = model.versions.get("9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb")
-        image_urls = model.predict(prompt=RPROMPT,num_outputs=4)
+
+        # https://replicate.com/prompthero/openjourney/versions/9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb#input
+        inputs = {
+            # Input prompt
+            'prompt': RPROMPT,
+
+            # Width of output image. Maximum size is 1024x768 or 768x1024 because
+            # of memory limits
+            'width': 512,
+
+            # Height of output image. Maximum size is 1024x768 or 768x1024 because
+            # of memory limits
+            'height': 512,
+
+            # Number of images to output
+            'num_outputs': 4,
+
+            # Number of denoising steps
+            # Range: 1 to 500
+            'num_inference_steps': 50,
+
+            # Scale for classifier-free guidance
+            # Range: 1 to 20
+            'guidance_scale': 6,
+
+            # Random seed. Leave blank to randomize the seed
+            # 'seed': ...,
+        }
+
+        # https://replicate.com/prompthero/openjourney/versions/9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb#output-schema
+        image_urls = version.predict(**inputs)
         
 
         img_name = PROMPT[:12]
