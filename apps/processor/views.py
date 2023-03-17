@@ -5,7 +5,6 @@ from apps.processor.forms import ProcessorForm
 from django.conf import settings
 import replicate
 import time
-import mysql.connector
 from django.core.files.storage import FileSystemStorage
 import os
  
@@ -81,21 +80,7 @@ def form(request):
 
     if request.method == 'POST':
         inp = request.POST.get("inp")
-        file = request.FILES.get("init")
-
-       #
-        
-        print(file)
-      # DATABASES = {
-    #'default': {
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'railway',
-       # 'USER': 'root',
-       # 'PASSWORD': 'qlK7pZsyw72HKjrvxGU7',
-        #'HOST':'containers-us-west-136.railway.app',
-        #'PORT':'6330',
-    #}
-#}
+   
         os.environ["REPLICATE_API_TOKEN"] ="9f720a466712b567cd24f7fe177377f2c961018a"
 
         YOUR_API_TOKEN = "9f720a466712b567cd24f7fe177377f2c961018a"
