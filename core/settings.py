@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+etnck%&$k55epg!f$!g+j(wiu*q1ia=)v#ex$$h^u1!jdma)2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 CSRF_TRUSTED_ORIGINS=['https://aigenerator-1-g1q1awov7-nihapmrm-gmailcoms-projects.vercel.app','https://web-production-8b8c.up.railway.app','https://aireferrer.com','http://aireferrer.com','https://web-production-bea3.up.railway.app']
 
