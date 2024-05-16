@@ -15,6 +15,4 @@ torch
 gevent
 replicate
 accelerate
-mysql-connector-python
-mysql
 django-redirect-to-non-www
